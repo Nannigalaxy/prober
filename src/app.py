@@ -7,7 +7,7 @@ from flask_moment import Moment
 
 from utils import read_yaml
 
-YAML_FILE = environ.get('FEED_YAML') # Path to source yaml file
+YAML_FILE_URL = environ.get('FEED_YAML') # Path to source yaml file
 
 app = Flask(__name__)
 moment = Moment(app)
@@ -40,7 +40,7 @@ def probe_status():
 
 @app.route("/", methods=["GET"])
 def index():
-    feed_data = get_feed_data(YAML_FILE)
+    feed_data = get_feed_data(YAML_FILE_URL)
     map_target = feed_data["map_target"]
     status_check = feed_data["status_check"]
     target_info = feed_data["target_info"]
