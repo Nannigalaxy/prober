@@ -1,0 +1,38 @@
+map:
+  environment: name
+  url: api_url
+  status: api_ping
+  database: database_ping
+  Docs: docs_url
+
+type:
+
+status-check:
+  api_ping: status 
+  database_ping: database
+
+target:
+  solar:
+  - name: Development 
+    api_url: https://github.com/Stability-AI/StableCascade
+    api_ping: https://reddit.com/
+    database_ping: https://api.artic.edu/api/v2/artworks
+    docs_url: https://api.artic.edu/api/v2/artworks2
+
+  - name: Production 
+    api_url: https://doodles.google
+    api_ping: https://ask.com/
+    database_ping: https://google.com/
+    docs_url: www.api.artic.edu/api/v2/artworks22
+
+  wind:
+  - name: Demo 
+    api_url: https://github.com/
+    api_ping: https://ping.com/
+    database_ping: https://york.com/
+    docs_url: https://api.artic.edu/api/v2/artworks222
+
+  - name: POC 
+    api_url: https://google.com/
+    api_ping: https://samsung.com/
+    database_ping: https://apple.com/

@@ -1,0 +1,135 @@
+body {
+    background-color: #edf2fb !important;
+}
+
+.main {
+    margin-top: 50px;
+}
+
+.logo-img {
+    /* https://isotropic.co/tool/hex-color-to-css-filter/ */
+    filter: invert(88%) sepia(3%) saturate(1444%) hue-rotate(193deg) brightness(109%) contrast(97%);
+}
+
+.title-card {
+    background-color: #023e8a !important;
+}
+
+.project-title {
+    font-weight: 400;
+    font-size: x-large;
+    color: #333;
+    background-color: #8ecae6;
+    border-radius: 10px 10px 0px 0px;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    margin-bottom: 0;
+    margin-top: 50px !important;
+    width: fit-content !important;
+}
+
+a:link,
+a:visited {
+    color: #023e8a;
+    text-decoration: none;
+}
+
+table {
+    display: table;
+    table-layout: fixed;
+    border-radius: 10px 10px 0px 0px;
+}
+
+td {
+    height: 80px;
+    text-align: center;
+    vertical-align: middle;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: all 5s linear;
+}
+
+td:hover {
+    transition: all 5s linear;
+    text-overflow: clip;
+    white-space: normal;
+    word-break: break-all;
+}
+
+
+.upstatus {
+    height: 28px;
+    width: 28px;
+    background-color: green;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.downstatus {
+    height: 28px;
+    width: 28px;
+    background-color: red;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.loader {
+    width: 20px;
+    height: 20px;
+    border: 6px solid #8ecae6;
+    border-bottom-color: #023e8a;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+td .helper {
+    visibility: hidden;
+    opacity: 0;
+    width: fit-content;
+    max-width: 280px;
+    background-color: #f7f7f7;
+    color: #333;
+    text-align: left !important;
+    text-justify: inter-word !important;
+    border-radius: 4px;
+    border: solid black;
+    box-shadow: 12px 12px 2px 1px rgba(81, 130, 235, 0.2);
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    margin-left: 200px;
+    margin-top: -38px;
+    transition: opacity 0.3s;
+    cursor: help;
+}
+
+td .helper:after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+}
+
+td:hover .helper {
+    visibility: visible;
+    opacity: 1;
+}
