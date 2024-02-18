@@ -1,3 +1,4 @@
+from os import environ 
 import re
 
 import requests
@@ -6,7 +7,7 @@ from flask_moment import Moment
 
 from utils import read_yaml
 
-YAML_FILE = "feed.yaml"
+YAML_FILE = environ.get('FEED_YAML') # Path to source yaml file
 
 app = Flask(__name__)
 moment = Moment(app)
