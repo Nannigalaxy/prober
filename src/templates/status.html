@@ -20,18 +20,29 @@
 
 <body>
     <div class="container main">
-        <div class="row">
-            <div class="card text-white title-card mb-3 mx-auto">
-                <div class="card-body">
-                    <h1 class="display-4">Prober <img class="logo-img" src="{{ url_for('static', filename='images/dog_astronaut.svg') }}"
-                            width="60"/></h1>
-                            <p class="card-text" style="text-align: right; margin-top: -30pt;">Last Checked: {{
-                                moment().fromNow(no_suffix=False, refresh=True) }} &emsp; <a href="/"
-                                class="btn btn-light"><i  class="bi bi-arrow-clockwise"></i></a></p>
-                </div>
+        <div class="card text-white title-card mb-3 mx-auto">
+            <div class="card-body">
+                <h1 class="display-4">Prober <img class="logo-img"
+                        src="{{ url_for('static', filename='images/dog_astronaut.svg') }}" width="60" /></h1>
+                <p class="card-text" style="text-align: right; margin-top: -30pt;">Last Checked: {{
+                    moment().fromNow(no_suffix=False, refresh=True) }} &emsp; <a href="/" class="btn btn-light"><i
+                            class="bi bi-arrow-clockwise"></i></a></p>
             </div>
         </div>
-        <div class="row">
+        <aside>
+            <h4>Domain Certificate</h2>
+                {% for domain in domain_data %}
+                <div class="card bg-light mb-3" style="max-width: 18rem;">
+                    <div class="card-header">{{domain.lower()}}</div>
+                    <div class="card-body">
+                        {% for key, value in domain_data[domain].items() %}
+                        <p class="card-text">{{key.replace('_', " ").title()}}: {{value}}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+        </aside>
+        <div class="row table-body">
             {% for type in target_data %}
             <h2 class="project-title">{{type.upper()}}</h2>
             <table id="data" class="table table-hover">
@@ -48,7 +59,7 @@
                     <tr scope="row">
                         {% for column, column_type in column_model.items() %}
                         {% if column in status_check.values() %}
-                        <td id='{{ entity[column_type] }}' ><span class="loader"></span><p></p></td>
+                        <td id='{{ entity[column_type] }}'><span class="loader"></span><p></p></td>
                         {% elif entity[column_type] and link_checker(entity[column_type]) %}
                         <td><a href="{{ entity[column_type] }}" target="_blank">{{ entity[column_type] }}</a></td>
                         {% else %}

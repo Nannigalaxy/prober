@@ -29,6 +29,24 @@ body {
     width: fit-content !important;
 }
 
+aside {
+    float: right !important;
+    margin-left: 25px;
+    margin-top: 25px;
+    display: block;
+}
+
+aside p {
+    font-size: 11pt;
+    margin: 0;
+}
+
+aside h4 {
+    font-size: 16pt;
+    font-weight: 300;
+}
+
+
 a:link,
 a:visited {
     color: #023e8a;
@@ -41,6 +59,10 @@ table {
     border-radius: 10px 10px 0px 0px;
 }
 
+.table-body {
+    margin-bottom: 80px;
+}
+
 td {
     height: 80px;
     text-align: center;
@@ -48,11 +70,11 @@ td {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    transition: all 5s linear;
+    transition: all 0.2s linear;
 }
 
 td:hover {
-    transition: all 5s linear;
+    transition: all 0.2s linear;
     text-overflow: clip;
     white-space: normal;
     word-break: break-all;
