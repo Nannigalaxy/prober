@@ -23,9 +23,6 @@ def get_feed_data(filename):
     )
 
 
-feed_data = get_feed_data(YAML_FILE_URL)
-
-
 def probe_api(url: str):
     try:
         response = requests.get(url)
@@ -41,8 +38,7 @@ def get_domain_metadata(domain_list: str):
     return domain_data
 
 
-def get_metadata():
-    target_info = feed_data["target_info"]
+def get_metadata(target_info):
     domain_list = []
     for target in target_info:
         for entity in target_info[target]:
@@ -64,10 +60,11 @@ def probe_status():
 
 @app.route("/", methods=["GET"])
 def index():
+    feed_data = get_feed_data(YAML_FILE_URL)
     map_target = feed_data["map_target"]
     status_check = feed_data["status_check"]
     target_info = feed_data["target_info"]
-    domain_data = get_metadata()
+    domain_data = get_metadata(target_info)
     return render_template(
         "status.html",
         column_model=map_target,
