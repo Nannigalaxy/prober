@@ -34,6 +34,6 @@ def get_domain_certificate(url: str):
     cert_exp_date = exp_date.strftime("%d %B %Y")
     cert_issuer = x509.get_issuer().O
     cert_data = dict(
-        expire_date=cert_exp_date, days_left=cert_remain_days, issuer=cert_issuer
+        expires_on=cert_exp_date, days_left=cert_remain_days, issuer=cert_issuer
     )
     return cert_data
