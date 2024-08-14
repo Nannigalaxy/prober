@@ -4,11 +4,10 @@ import requests
 from flask import Flask, render_template, request
 from flask_moment import Moment
 
-from utils import (get_domain_certificate, get_root_domain, re_url_checker,
-                   read_yaml)
+from utils import get_domain_certificate, get_root_domain, re_url_checker, read_yaml
 
-YAML_FILE_URL = environ.get('FEED_YAML') # Path to source yaml file
-
+YAML_FILE_URL = environ.get("FEED_YAML")  # Path to source yaml file
+print(YAML_FILE_URL)
 app = Flask(__name__)
 moment = Moment(app)
 

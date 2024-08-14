@@ -33,6 +33,6 @@ target:
     docs_url: https://api.artic.edu/api/v2/artworks222
 
   - name: POC 
-    api_url: https://google.com/
-    api_ping: https://samsung.com/
+    api_url: https://port.com/
+    api_ping: https://xkcd.com/
     database_ping: https://apple.com/

@@ -9,8 +9,15 @@ from tld import get_tld
 
 
 def read_yaml(url_filename: str) -> dict:
-    file = requests.get(url_filename)
-    prime_service = yaml.safe_load(file.text)
+    try:
+        file = requests.get(url_filename)
+        file_content = file.text
+    except:
+        with open(url_filename, "r") as file:
+            file_content = file.read()
+    else:
+        raise Exception("Invalid Feed file. Check the path in environment file")
+    prime_service = yaml.safe_load(file_content)
     return prime_service
 
 

@@ -1,0 +1,6 @@
+services:
+    prober:
+        build: .
+        ports:
+            - "7001:8080"
+        env_file: "./.flaskenv"
